@@ -11,7 +11,7 @@ class Scrabble
     scores = word.upcase.split("").map do |letter|
       point_values[letter]
     end
-    nested_scores = [scores] << letter_multiplier
+#     nested_scores = [scores] << letter_multiplier
     scores.sum * word_multiplier
   end
 
