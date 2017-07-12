@@ -1,8 +1,22 @@
+require './lib/player'
+require 'pry'
+
 class Scrabble
 
-  def score(word)
-    1
+  def initialize
+    @player = Player.new
   end
+
+  def score(word, letter_multiplier = [], word_multiplier = 1)
+    scores = word.upcase.split("").map do |letter|
+      point_values[letter]
+    end
+    nested_scores = [scores] << letter_multiplier
+    scores.sum * word_multiplier
+  end
+
+  # def calculate_score_of_array(word, multiplier)
+  #   word.each
 
   def point_values
     {
